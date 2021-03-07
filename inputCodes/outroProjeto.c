@@ -92,13 +92,13 @@ int main(){
 		printf("\t\t |  \\/  | __| \\| | | | |\n"); 
 		printf("\t\t | |\\/| | _|| .` | |_| |\n");
 		printf("\t\t |_|  |_|___|_|\\_|\\___/ \n\n");
-		printf("\tescolha uma opã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o:\n\t\t[1] cadastros\n\t\t[2] emprã£â£ã¢â£ã£â¢ã¢â©stimos\n\t\t[3] consulta\n\t\t[4] sair\n\n\t\t--->");
+		printf("\tescolha uma opã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o:\n\t\t[1] cadastros\n\t\t[2] emprã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â©stimos\n\t\t[3] consulta\n\t\t[4] sair\n\n\t\t--->");
 		
 		while(1){ 
 			
 			leitura_de_numero(&menu, 1);
 			if(menu<1 || menu > 4){ 
-				printf("\n\topã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
+				printf("\n\topã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
 			}
 			else{
 				break; 
@@ -144,7 +144,7 @@ int leitura_de_usuario(user *pessoa, int id){
 	}
 	
 	if(id>nusuarios || id<1){ 
-		printf("\nerro usuario nã£â£ã¢â£ã£â¢ã¢â£o encontrado\n");
+		printf("\nerro usuario nã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o encontrado\n");
 		return -1;
 	}
 	fseek(arquivo_users, (sizeof(int) + (id-1)*sizeof(user)), seek_set ); 
@@ -169,7 +169,7 @@ int leitura_de_livro(book *exemplar, int id){
 	}
 	
 	if(id>nlivros || id<1){ 
-		printf("\nerro livro nã£â£ã¢â£ã£â¢ã¢â£o encontrado\n");
+		printf("\nerro livro nã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o encontrado\n");
 		return -1;
 	}
 	
@@ -187,7 +187,7 @@ void consulta(){
 			
 			leitura_de_numero(&menu, 1); 
 			if(menu<1 || menu > 5){ 
-				printf("\n\topã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
+				printf("\n\topã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
 			}
 			else{
 				break; 
@@ -223,7 +223,7 @@ void mostrar_usuarios_todos(){
 	book exemplar;
 	int i, j, nusuarios;
 	nusuarios = leitura_de_usuario(null, 0); 
-	printf("\n\texistem %d usuã£â£ã¢â£ã£â¢ã¢â¡rios\n", nusuarios); 
+	printf("\n\texistem %d usuã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡rios\n", nusuarios); 
 	for(i=1; i<=nusuarios; i++){ 
 		leitura_de_usuario(&amostra, i); 
 		printf("\n\n\tnome: %s\n\tid: %d\n\t%d/3 livros emprestados", amostra.nome, amostra.id, amostra.emprestimos); 
@@ -249,16 +249,16 @@ void mostrar_livros_todos(){
 	printf("existem %d livros", nlivros);
 	for(i = 1; i<=nlivros; i++){ 
 		leitura_de_livro(&exemplar, i); 
-		printf("\n\n\ttã£â£ã¢â£ã£â¢ã¢â­tulo: %s\n\tid: %d\n\t", exemplar.titulo, exemplar.id); 
+		printf("\n\n\ttã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â­tulo: %s\n\tid: %d\n\t", exemplar.titulo, exemplar.id); 
 		if(exemplar.emprestado==1){ 
 			data_de_entrega = localtime(&exemplar.devolucao);
-			printf("situaã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o: emprestado\n\tentrega: %d/%d/%d", data_de_entrega->tm_mday, (data_de_entrega->tm_mon+1), (data_de_entrega->tm_year + 1900));
+			printf("situaã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o: emprestado\n\tentrega: %d/%d/%d", data_de_entrega->tm_mday, (data_de_entrega->tm_mon+1), (data_de_entrega->tm_year + 1900));
 			if(segundos>exemplar.devolucao){ 
 				printf("\n\tatrasado\n");
 			}
 		}
 		else{ 
-			printf("situaã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o: disponã£â£ã¢â£ã£â¢ã¢â­vel\n");
+			printf("situaã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o: disponã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â­vel\n");
 		}
 	}
 	
@@ -286,32 +286,32 @@ void ordenar_livros(int ordem){
 	if(ordem == 0){ 
 		for(i=0; i<n_livros; i++){ 
 			leitura_de_livro(&exemplar, datas[i].id); 
-			printf("\n\n\ttã£â£ã¢â£ã£â¢ã¢â­tulo: %s\n\tid: %d\n\t", exemplar.titulo, exemplar.id); 
+			printf("\n\n\ttã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â­tulo: %s\n\tid: %d\n\t", exemplar.titulo, exemplar.id); 
 			if(exemplar.emprestado==1){ 
 				data_de_entrega = localtime(&exemplar.devolucao);
-				printf("situaã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o: emprestado\n\tentrega: %d/%d/%d", data_de_entrega->tm_mday, (data_de_entrega->tm_mon+1), (data_de_entrega->tm_year + 1900));
+				printf("situaã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o: emprestado\n\tentrega: %d/%d/%d", data_de_entrega->tm_mday, (data_de_entrega->tm_mon+1), (data_de_entrega->tm_year + 1900));
 				if(segundos>exemplar.devolucao){
 					printf("\n\tatrasado\n");
 				}
 			}
 			else{ 
-				printf("situaã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o: disponã£â£ã¢â£ã£â¢ã¢â­vel\n");
+				printf("situaã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o: disponã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â­vel\n");
 			}
 		}
 	}
 	if(ordem == 1){ 
 		for(i=n_livros-1; i>=0; i--){ 
 			leitura_de_livro(&exemplar, datas[i].id); 
-			printf("\n\n\ttã£â£ã¢â£ã£â¢ã¢â­tulo: %s\n\tid: %d\n\t", exemplar.titulo, exemplar.id); 
+			printf("\n\n\ttã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â­tulo: %s\n\tid: %d\n\t", exemplar.titulo, exemplar.id); 
 			if(exemplar.emprestado==1){ 
 				data_de_entrega = localtime(&exemplar.devolucao);
-				printf("situaã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o: emprestado\n\tentrega: %d/%d/%d", data_de_entrega->tm_mday, (data_de_entrega->tm_mon+1), (data_de_entrega->tm_year + 1900));
+				printf("situaã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o: emprestado\n\tentrega: %d/%d/%d", data_de_entrega->tm_mday, (data_de_entrega->tm_mon+1), (data_de_entrega->tm_year + 1900));
 				if(segundos>exemplar.devolucao){
 					printf("\n\tatrasado\n");
 				}
 			}
 			else{ 
-				printf("situaã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o: disponã£â£ã¢â£ã£â¢ã¢â­vel\n");
+				printf("situaã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o: disponã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â­vel\n");
 			}
 		}
 	}	
@@ -336,12 +336,12 @@ void cadastros(){
 	int menu;
 	do{
 		
-		printf("\n\tescolha uma opã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o:\n\t\t[1] cadastrar livro\n\t\t[2] cadastrar usuã£â£ã¢â£ã£â¢ã¢â¡rio\n\t\t[3] remover livro\n\t\t[4] remover usuã£â£ã¢â£ã£â¢ã¢â¡rio\n\t\t[5] sair\n\t\t--->");
+		printf("\n\tescolha uma opã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o:\n\t\t[1] cadastrar livro\n\t\t[2] cadastrar usuã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡rio\n\t\t[3] remover livro\n\t\t[4] remover usuã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡rio\n\t\t[5] sair\n\t\t--->");
 		while(1){ 
 			
 			leitura_de_numero(&menu, 1);
 			if(menu<1 || menu > 5){ 
-				printf("\n\topã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
+				printf("\n\topã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
 			}
 			else{
 				break; 
@@ -436,17 +436,17 @@ void cadastrar_usuario(){
 void remover_usuario(){ 
 	int id, n, i;
 	user removido, *pessoas; 
-	printf("\n\tqual o id do usuã£â£ã¢â£ã£â¢ã¢â¡rio que se deseja remover?\n\t\t--->"); 
+	printf("\n\tqual o id do usuã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡rio que se deseja remover?\n\t\t--->"); 
 	n = leitura_de_usuario(null, 0); 
 	if(n==0){ 
-		printf("\n\tnã£â£ã¢â£ã£â¢ã¢â£o existe usuã£â£ã¢â£ã£â¢ã¢â¡rio para ser removido\n");
+		printf("\n\tnã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o existe usuã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡rio para ser removido\n");
 		return;
 	}
 	while(1){ 
 			
 		leitura_de_numero(&id, 1);
 		if(id<1 || id > n){ 
-			printf("\n\topã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
+			printf("\n\topã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
 		}
 		else{
 			break; 
@@ -454,7 +454,7 @@ void remover_usuario(){
 	}
 	leitura_de_usuario(&removido, id); 
 	if(removido.emprestimos != 0){ 
-		printf("o usuario nã£â£ã¢â£ã£â¢ã¢â£o pode ser removido, primeiro faã£â£ã¢â£ã£â¢ã¢â§a a devoluã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o");
+		printf("o usuario nã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o pode ser removido, primeiro faã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§a a devoluã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o");
 		return; 
 	}
 	
@@ -502,14 +502,14 @@ void remover_livro(){
 	printf("\n\tqual o id do livro que se deseja remover?\n\t\t--->");
 	n = leitura_de_livro(null, 0); 
 	if(n==0){ 
-		printf("\n\tnã£â£ã¢â£ã£â¢ã¢â£o existe livro para ser removido\n");
+		printf("\n\tnã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o existe livro para ser removido\n");
 		return;
 	}
 	while(1){ 
 			
 		leitura_de_numero(&id, 1);
 		if(id<1 || id > n){ 
-			printf("\n\topã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
+			printf("\n\topã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
 		}
 		else{
 			break; 
@@ -517,7 +517,7 @@ void remover_livro(){
 	}
 	leitura_de_livro(&removido, id); 
 	if(removido.emprestado != 0){ 
-		printf("o livro emprestado nã£â£ã¢â£ã£â¢ã¢â£o pode ser removido, primeiro faã£â£ã¢â£ã£â¢ã¢â§a a devoluã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o"); 
+		printf("o livro emprestado nã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o pode ser removido, primeiro faã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§a a devoluã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o"); 
 		return;
 	}
 	
@@ -567,12 +567,12 @@ void emprestimo(){
 	int menu;
 	do{
 		
-		printf("\n\tescolha uma opã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o:\n\t\t[1] emprestar livro\n\t\t[2] devoluã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o de livro\n\t\t[3] sair\n\t\t--->");
+		printf("\n\tescolha uma opã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o:\n\t\t[1] emprestar livro\n\t\t[2] devoluã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o de livro\n\t\t[3] sair\n\t\t--->");
 		while(1){ 
 			
 			leitura_de_numero(&menu, 1);
 			if(menu<1 || menu > 5){ 
-				printf("\n\topã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
+				printf("\n\topã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
 			}
 			else{
 				break; 
@@ -609,7 +609,7 @@ void emprestar(){
 			
 		leitura_de_numero(&id_livro, 1);
 		if(id_livro<1 || id_livro > n_livros){ 
-			printf("\n\topã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
+			printf("\n\topã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
 		}
 		else{
 			break; 
@@ -617,15 +617,15 @@ void emprestar(){
 	}
 	leitura_de_livro(&exemplar, id_livro); 
 	if(exemplar.emprestado == 1){ 
-		printf("o livro jã£â£ã¢â£ã£â¢ã¢â¡ estã£â£ã¢â£ã£â¢ã¢â¡ emprestado");
+		printf("o livro jã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡ estã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡ emprestado");
 		return;
 	}
-	printf("\n\tdigite o id do usuã£â£ã¢â£ã£â¢ã¢â¡rio\n\t\t--->"); 
+	printf("\n\tdigite o id do usuã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡rio\n\t\t--->"); 
 	while(1){ 
 			
 		leitura_de_numero(&id_usuario, 1);
 		if(id_livro<1 || id_livro > n_usuarios){ 
-			printf("\n\topã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
+			printf("\n\topã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
 		}
 		else{
 			break; 
@@ -633,7 +633,7 @@ void emprestar(){
 	}
 	leitura_de_usuario(&pessoa, id_usuario); 
 	if(pessoa.emprestimos == 3){ 
-		printf("o usuario jã£â£ã¢â£ã£â¢ã¢â¡ tem emprestado muitos livros");
+		printf("o usuario jã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡ tem emprestado muitos livros");
 		return;
 	}
 	exemplar.emprestado = 1; 
@@ -678,7 +678,7 @@ void devolucao(){
 			
 		leitura_de_numero(&id_livro, 1);
 		if(id_livro<1 || id_livro > n_livros){ 
-			printf("\n\topã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
+			printf("\n\topã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
 		}
 		else{
 			break; 
@@ -686,15 +686,15 @@ void devolucao(){
 	}
 	leitura_de_livro(&exemplar, id_livro); 
 	if(exemplar.emprestado != 1){ 
-		printf("o livro nã£â£ã¢â£ã£â¢ã¢â£o estã£â£ã¢â£ã£â¢ã¢â¡ emprestado");
+		printf("o livro nã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o estã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡ emprestado");
 		return;
 	}
-	printf("\n\tdigite o id do usuã£â£ã¢â£ã£â¢ã¢â¡rio\n\t\t--->"); 
+	printf("\n\tdigite o id do usuã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡rio\n\t\t--->"); 
 	while(1){ 
 			
 		leitura_de_numero(&id_usuario, 1);
 		if(id_livro<1 || id_livro > n_usuarios){ 
-			printf("\n\topã£â£ã¢â£ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
+			printf("\n\topã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â§ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o invã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡lida, digite novamente!\n\t\t--->");
 		}
 		else{
 			break; 
@@ -702,7 +702,7 @@ void devolucao(){
 	}
 	leitura_de_usuario(&pessoa, id_usuario); 
 	if(pessoa.livros[0]!=id_livro && pessoa.livros[1]!=id_livro && pessoa.livros[2]!=id_livro){ 
-		printf("o usuã£â£ã¢â£ã£â¢ã¢â¡rio nã£â£ã¢â£ã£â¢ã¢â£o pegou emprestado este livro"); 
+		printf("o usuã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡rio nã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â£o pegou emprestado este livro"); 
 		return; 
 	}
 	
@@ -780,10 +780,10 @@ else{
 if(strlen(numerotxt)==0){ 
 	confirmacao_de_leitura = 0; 
 }else if(confirmacao_de_leitura==2 && tipo_de_numero == 1){ 
-	printf("\n\tã£â£ã¢â£ã£â¢ã¢â© esperado um nã£â£ã¢â£ã£â¢ã¢âºmero inteiro!\n\n\tdigite novamente:  "); 
+	printf("\n\tã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â© esperado um nã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢âºmero inteiro!\n\n\tdigite novamente:  "); 
 	confirmacao_de_leitura = 0; 
 }else if(confirmacao_de_leitura == 0){ 
-	printf("\n\tentrada invã£â£ã¢â£ã£â¢ã¢â¡lida! ã£â£ã¢â£ã£â¢ã¢â© esperado um nã£â£ã¢â£ã£â¢ã¢âºmero.\n\n\tdigite novamente:  "); 
+	printf("\n\tentrada invã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â¡lida! ã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢â© esperado um nã£â£ã¢â£ã£â¢ã¢â£ã£â£ã¢â¢ã£â¢ã¢âºmero.\n\n\tdigite novamente:  "); 
 }
 
 }while(confirmacao_de_leitura==0); 
